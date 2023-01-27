@@ -1,0 +1,20 @@
+- var usefulList = [{jpg:'img/useful/useful1-1920.jpg', webp:'img/useful/useful1-1920.webp', alt:'Интерьер в светлых тонах', title:'И нет сомнений, что сделанные на базе интернет-аналитики выводы представляют собой не что иное?'}, {jpg:'img/useful/useful2-1920.jpg', webp:'img/useful/useful2-1920.webp', alt:'Стол и стул в светлых тонах', title:'Как принято считать, некоторые особенности приносят несомненную пользу обществу?'},  {jpg:'img/useful/useful3-1920.jpg', webp:'img/useful/useful3-1920.webp', alt:'Цветы в вазе', title:'Ясность нашей позиции очевидна: укрепление и развитие внутренней структуры?'},  {jpg:'img/useful/useful4-1920.jpg', webp:'img/useful/useful4-1920.webp', alt:'Кухня в светлых тонах', title:'Прежде всего, консультация с широким активом однозначно фиксирует необходимость распределения?'},  {jpg:'img/useful/useful5-1920.jpg', webp:'img/useful/useful5-1920.webp', alt:'Зеркало', title:'Как принято считать, некоторые особенности приносят несомненную пользу обществу?'}]
+section.useful
+  .container.useful__container
+    .useful__top
+      h2.title.useful__title Полезное
+      .useful__navigation
+        button.useful__back(aria-label="Листать назад")
+        button.useful__next(aria-label="Листать вперед")
+    .swiper.useful__swiper.useful-slider-js
+      .swiper-wrapper.useful__list
+        each item in usefulList
+          .swiper-slide.useful__item.useful__slide
+            article.useful__article.article-card
+              picture.article-card__picture
+                source.article-card__img(src=item.webp type="image/webp")
+                img.article-card__img(src=item.jpg alt=item.alt)
+              .article-card__content
+                h3.article-card__title= item.title
+                button.article-card__btn Читать
+    

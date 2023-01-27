@@ -1,0 +1,108 @@
+-var submenu = [{name:"О компании", href:"#"}, {name:"Гарантия и возврат", href:"#"}, {name:"Корпоративным клиентам", href:"#"}, {name: "Дизайн-решение", href:"#"}]
+-var submenuHide = [{name:"О компании", href:"#"}, {name:"Гарантия и возврат", href:"#"}, {name:"Корпоративным клиентам", href:"#"}, {name: "Дизайн-решение", href:"#"}]
+-var menu = [{name:"Каталог", href:"#"}, {name:"Магазины", href:"#"}, {name:"Шоу-рум", href:"#"}, {name: "Доставка и оплата", href:"#"}, {name: "Дисконт", href:"#"}, {name: "Контакты", href:"#"}]
+-var category = [{name:"Диваны", data:"divan"}, {name:"Кресла", data:"kresla"}, {name:"Пуфы", data:"pufi"}, {name:"Кровати", data:"krovati"}, {name:"Тумбы", data:"tumbi"}, {name:"Комоды", data:"komodi"}, {name:"Стулья", data:"stulya"}, {name:"Столы", data:"stoli"}, {name:"Аксессуары", data:"acsessuari"}]
+
+header.header
+  .header__bar
+    a.logo(href="#")
+      svg.logo__svg
+        use(xlink:href="img/sprite.svg#logo")
+  .header__regtel
+    .container.header__container.location.header__location
+      .location__wrap
+        h3.location__title Ваш регион:
+        select.location__select(name="select" id="selectCustomHide")
+          option.location__item(value="mosсow" data-art="mosсow" selected) Москва
+          option.location__item(value="kazan" data-art="kazan") Казань
+          option.location__item(value="ufa" data-art="ufa") Уфа
+          option.location__item(value="perm" data-art="perm") Пермь
+      a.location__tel(href="tel:+74958854547")
+        svg.location__icon
+          use(xlink:href="img/sprite.svg#tel")
+        span.location__num +7(495)885-45-47
+  .header__top
+    .container.header__container
+      .header__contact.contact
+        .contact__location.location
+          .location__wrap
+            h3.location__title Ваш регион:
+            select.location__select(name="select" id="selectCustom")
+              option.location__item(value="mosсow" data-art="mosсow" selected) Москва
+              option.location__item(value="kazan" data-art="kazan") Казань
+              option.location__item(value="ufa" data-art="ufa") Уфа
+              option.location__item(value="perm" data-art="perm") Пермь
+            a.location__tel(href="tel:+74958854547")
+              svg.location__icon
+                use(xlink:href="img/sprite.svg#tel")
+              span.location__num +7(495)885-45-47
+      nav.header__submenu.submenu
+        ul.submenu__list
+          each item in submenu
+            li.submenu__item
+              a.submenu__link(href=item.href)= item.name
+      nav.header__user--hide.user
+        ul.user__list
+          li.user__item
+            a.user__link(href="#")
+              svg.user__svg.user__svg--login
+                use(xlink:href="img/sprite.svg#user")
+          li.user__item
+            a.user__link(href="#")
+              span.user__count 0
+              svg.user__svg.user__svg--cart
+                use(xlink:href="img/sprite.svg#cart")
+  .header__middle.middle
+    nav.middle__submenu.submenu
+      ul.submenu__list
+        each item in submenuHide
+          li.submenu__item
+            a.submenu__link(href=item.href)= item.name
+    .container.header__container.middle__container
+      button.header__burger.burger.burger-js(type="button" aria-label="Открыть меню")
+        span.burger__line
+        span.burger__line
+        span.burger__line
+      a.header__logo.middle__logo.logo(href="#")
+        svg.logo__svg
+          use(xlink:href="img/sprite.svg#logo")
+      nav.header__menu.menu
+        ul.menu__list
+          each item in menu
+            li.menu__item
+              a.menu__link(href=item.href)= item.name
+      nav.middle__user.user
+        ul.user__list
+          li.user__item
+            a.user__link(href="#")
+              svg.user__svg.user__svg--login
+                use(xlink:href="img/sprite.svg#user")
+          li.user__item
+            a.user__link(href="#")
+              span.user__count 0
+              svg.user__svg.user__svg--cart
+                use(xlink:href="img/sprite.svg#cart")
+  .header__bottom
+    .container.header__container
+      .header__wrap
+        form.header__form.search
+          label.search__label
+            input.search__input(type="search" placeholder="Я хочу купить")
+            svg.search__svg
+              use(xlink:href="img/sprite.svg#search")
+          button.search__btn(aria-label="найти")
+        select.header__category.category(name="select" id="selectCategory")
+          option.category__item.choices__heading(value="категория" data-art="kategory") Категория
+          each item in category
+            option.category__item(value=item.name data-art=item.data)= item.name
+      nav.header__user.user
+        ul.user__list
+          li.user__item
+            a.user__link(href="#")
+              svg.user__svg.user__svg--login
+                use(xlink:href="img/sprite.svg#user")
+          li.user__item
+            a.user__link(href="#")
+              span.user__count 0
+              svg.user__svg.user__svg--cart
+                use(xlink:href="img/sprite.svg#cart")

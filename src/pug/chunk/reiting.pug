@@ -1,0 +1,17 @@
+-var reiting = [{reiting: '5,0', png:'img/reiting/reiting1.png', webp:'img/reiting/reiting1.webp', alt:'Диван черный кожаный', name:'Диван кожаный', model:'“R-94”', price:'94 990 руб'}, {reiting: '4,9', png:'img/reiting/reiting2.png', webp:'img/reiting/reiting2.webp', alt:'Диван апартековый “T-75”', name:'Диван апартековый', model:'“T-75”', price:'69 990 руб'}, {reiting: '4,8', png:'img/reiting/reiting3.png', webp:'img/reiting/reiting3.webp', alt:'Диван тканевый', name:'Диван тканевый', model:'“D-31”', price:'28 490 руб'}, {reiting: '4,8', png:'img/reiting/reiting4.png', webp:'img/reiting/reiting4.webp', alt:'Диван велюровый', name:'Диван велюровый', model:'“Y-68”', price:'22 990 руб'}, {reiting: '4,8', png:'img/reiting/reiting5.png', webp:'img/reiting/reiting5.webp', alt:'Диван из шинила', name:'Диван из шинила', model:'“W-95”', price:'22 990 руб'}, {reiting: '4,8', png:'img/reiting/reiting6.png', webp:'img/reiting/reiting6.webp', alt:'Диван флоковый', name:'Диван флоковый', model:'“G-41”', price:'17 990 руб'}, {reiting: '4,8', png:'img/reiting/reiting7.png', webp:'img/reiting/reiting7.webp', alt:'Диван шиниловый', name:'Диван шиниловый', model:'“V-43”', price:'19 990 руб'}, {reiting: '4,7', png:'img/reiting/reiting8.png', webp:'img/reiting/reiting8.webp', alt:'Диван велюровый', name:'Диван велюровый', model:'“S-99”', price:'19 990 руб'}]
+section.reiting( id="reiting")
+  .container.reiting__container
+    h2.title.reiting__title Высокий рейтинг
+    .reiting__grid
+      each item in reiting
+        .card.reiting__card
+          .card__reiting= item.reiting
+          picture.card__picture.reiting__picture
+            source.card__img.reiting__img(src=item.webp type="image/webp")
+            img.card__img.reiting__img(src=item.png alt=item.alt)
+          .card__bottom.reiting__bottom
+            h3.card__title.card__name.reiting__name= item.name
+            h3.card__title.card__model.reiting__model= item.model
+            .card__price.price.reiting__price= item.price
+            button.card__button.reiting__button Купить
+    button.reiting__btn Смотреть больше товаров

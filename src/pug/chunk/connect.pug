@@ -1,0 +1,17 @@
+section.connect(id="connect")
+  .container.connect__container
+    h2.title.connect__title Мы всегда вам рады!
+    p.connect__text Безусловно, новая модель организационной деятельности в значительной степени обусловливает важность распределения внутренних резервов и ресурсов.
+      button.connect__tooltip(id="connect__tooltip") ? 
+    form.connect__form.form(action="#" method="POST" name="form" enctype="multipart/form-data")
+      label.form__label
+        input.form__input( name="name" type="text" placeholder="Как вас зовут?" data-validate-field="name")          
+      label.form__label
+        input.form__input(name="tel" type="tel" placeholder="Ваш телефон" data-validate-field="tel")
+      label.form__label
+        input.form__input( name="email" type="email" placeholder="Ваш e-mail" data-validate-field="email" data-validate-rules="email")
+      button.form__btn(type="submit") Отправить
+      label.checkbox
+        input.checkbox__input(type="checkbox" name="check" data-validate-field="check")
+        .checkbox__text Принимаю 
+          a.checkbox__link(href="") пользовательское соглашение

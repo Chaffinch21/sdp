@@ -1,0 +1,21 @@
+-var list = [{name:"ok", label:"перейти на страницу highpass в одноклассниках", href:"https://ok.ru/yelena.zelenkinakochergova", svg: "img/sprite.svg#ok"}, {name:"vk", label:"перейти на страницу highpass вконтакте", href:"https://vk.com/chaffinch", svg: "img/sprite.svg#vk"}]
+
+footer.footer
+  .container.footer-container
+    .footer-logo
+      a.footer-logo__svg(href="#")
+        svg.logo-svg
+          use(xlink:href="img/sprite.svg#logo")
+      p.footer-logo__descr Фотостудия High pass<sup class="reg">&reg;</sup> 2018&ndash;2020
+    .footer-quote
+      p.footer-quote__text Которая из&nbsp;моих фотографий самая любимая?
+      p.footer-quote__text Та, которую я&nbsp;собираюсь снять завтра.
+      p.footer-quote__text &copy;&nbsp;Имоджен Каннингем
+    .footer-social
+      h3.footer-social__title Больше интересного:
+      ul.footer-social__list.social-list
+        each item in list
+          li.social-list__item
+            a.social-list__link(href=item.href aria-label=item.label class=item.name target="_blank")
+              svg.social-svg
+                use(xlink:href=item.svg)

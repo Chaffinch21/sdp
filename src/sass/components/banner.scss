@@ -1,0 +1,103 @@
+.banner {
+  margin-bottom: 68px;
+  background-image: url('../img/banner1920.jpg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  padding: 150px 0;
+
+  @media (max-width: 1024px) {
+    background-image: url('../img/banner1024.jpg');
+  }
+
+  @media (max-width: 768px) {
+    background-image: url('../img/banner768.jpg');
+  }
+
+  @media (max-width:450px) {
+    padding: 35px 0 65px;
+    margin-bottom: 160px;
+    background-image: url('../img/banner320.jpg');
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    @media (max-width:610px) {
+      position: relative;
+    }
+  }
+
+  &__title {
+    margin: 0;
+    font-family: 'PlayfairDisplay';
+    font-weight: 900;
+    font-size: 60px;
+    line-height: 72px;
+    color: $gold-color;
+
+    @media (min-width:450px) and (max-width:768px) {
+      margin-left: -40px;
+    }
+
+    @media (max-width:610px) {
+      font-size: 42px;
+      line-height: 48px;
+    }
+
+    @media (max-width:450px) {
+      font-size: 24px;
+      line-height: 28px;
+    }
+  }
+
+  &__descr {
+    max-width: 50%;
+    margin: 0;
+    margin-bottom: 50px;
+    font-family: 'OpenSans';
+    font-weight: 400;
+    font-size: 48px;
+    line-height: 58px;
+    color: $light-background;
+
+    @media (max-width: 1024px) {
+      max-width: 80%;
+    }
+
+    @media (min-width:450px) and (max-width:768px) {
+      margin-left: -40px;
+    }
+
+    @media (max-width:610px) {
+      max-width: 70%;
+      font-size: 20px;
+      line-height: 24px;
+    }
+
+    @media (max-width:450px) {
+      max-width: 70%;
+      font-size: 16px;
+      line-height: 18px;
+    }
+  }
+
+  &__btn {
+    @include primary-btn;
+    padding: 18px 32px;
+
+    @media (min-width:450px) and (max-width:768px) {
+      margin-left: -40px;
+    }
+
+    @media (max-width:450px) {
+      position: absolute;
+      width: 296px;
+      bottom: -155px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+}

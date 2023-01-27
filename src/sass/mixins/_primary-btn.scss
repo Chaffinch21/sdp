@@ -1,0 +1,28 @@
+@mixin primary-btn {
+  color: $light-background;
+  background-color: $primary-color;
+  padding: 18px 48px;
+  font-family: 'OpenSans';
+  font-weight: 700;
+  font-size: 16px;
+  border: 2px solid $primary-color;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: border .3s ease-in-out, background-color .3s ease-in-out;
+
+  &:hover {
+    background-color: $primary-light-color;
+    border: 2px solid $primary-light-color;
+  }
+
+  &:focus {
+    outline: none;
+    background-color: $primary-light-color;
+    border: 2px solid $primary-shade-color;
+  }
+
+  &:active {
+    background-color: $primary-shade-color;
+    border: 2px solid $primary-shade-color;
+  }
+}
