@@ -57,7 +57,6 @@
   "dependencies": {
     "choices.js": "^10.2.0",
     "inputmask": "^5.0.7",
-    "just-validate": "^3.8.1",
     "mozjpeg": "^8.0.0",
     "normalize-scss": "^7.0.1",
     "normalize.css": "^8.0.1",

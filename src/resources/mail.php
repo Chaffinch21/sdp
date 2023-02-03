@@ -1,12 +1,13 @@
 <?php
 
-require 'phpmailer/PHPMailer.php';
-require 'phpmailer/SMTP.php';
-require 'phpmailer/Exception.php';
+require 'resources/phpmailer/PHPMailer.php';
+require 'resources/phpmailer/SMTP.php';
+require 'resources/phpmailer/Exception.php';
 
 $title = "Тема письма";
 
 $c = true;
+
 
 $title = "Заголовок письма";
 foreach ( $_POST as $key => $value ) {
@@ -32,13 +33,13 @@ try {
   $mail->SMTPAuth   = true;
 
   $mail->Host       = 'smtp.mail.ru';
-  $mail->Username   = 'lena_431@mail.ru';
-  $mail->Password   = 'B2J4hutDBSswfat9BbDB';
+  $mail->Username   = 'test_my_mail_21@mail.ru';
+  $mail->Password   = 'FQd2ep4fhzsDfxmTXwZ2';
   $mail->SMTPSecure = 'ssl';
   $mail->Port   = 465;
 
-  $mail->setFrom('lena_431@mail.ru', 'Тест Blanchard');
-  $mail->addAddress('lena_431@mail.ru');
+  $mail->setFrom('test_my_mail_21@mail.ru', 'Тест sdp');
+  $mail->addAddress('test_my_mail_21@mail.ru');
   $mail->addAddress('al_zzz@mail.ru');
 
   //Отправка сообщения

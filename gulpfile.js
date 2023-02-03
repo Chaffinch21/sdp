@@ -11,6 +11,7 @@ const svgSprites = require('./task/svgSprites');
 const favicon = require("./task/favicon.js");
 const resources = require("./task/resources.js");
 const json = require("./task/json.js");
+// const mail = require("./task/mail.js");
 
 const path = require('./config/path.js');
 const app = require('./config/app.js');
@@ -34,6 +35,7 @@ const watcher = () => {
   watch(path.favicon.watch, favicon).on("all", browserSync.reload);
   watch(path.resources.watch, resources).on("all", browserSync.reload);
   watch(path.json.watch, json).on("all", browserSync.reload);
+  // watch(path.mail.watch, json).on("all", browserSync.reload);
 }
 
 const build = series(
@@ -57,5 +59,6 @@ exports.svgSprites = svgSprites;
 exports.favicon = favicon;
 exports.resources = resources;
 exports.json = json;
+// exports.mail = mail;
 
 exports.default = app.isProd ? build : dev;

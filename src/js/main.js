@@ -1,3 +1,6 @@
+// import JustValidate from 'just-validate';
+// JustValidate = require('just-validate');
+// import JustValidate from '../node_modules/just-validate/dist/just-validate.production.min.js';
 
 const selectEl = document.querySelector('#selectCustom');
 const selectHideEl = document.querySelector('#selectCustomHide');
@@ -123,41 +126,122 @@ let inputTel = document.querySelector("input[type='tel']");
 let maskTel = new Inputmask("+7 (999)-999-99-99");
 maskTel.mask(inputTel);
 
-new JustValidate('.connect__form', {
-  rules: {
-    name: {
-      required: true,
-      minLength: 2,
-      maxLength: 20
-    },
-    tel: {
-      required: true,
-      function: (name, value) => {
-        const phone = inputTel.inputmask.unmaskedvalue();
-        return Number(phone) && phone.length === 10;
-      }
-    },
-    email: {
-      required: true,
-      email: true
-    },
-    check: {
-      function: () => {
-        const check = document.querySelector('.checkbox__input');
-        return check.checked;
+const validator = new JustValidate('.connect__form', {
+  validateBeforeSubmitting: true,
+});
+  validator
+    .addField('#name', [
+      {
+        rule: 'required',
+        errorMessage: 'Поле не заполнено',
+      },
+      {
+        rule: 'minLength',
+        value: 3,
+        errorMessage: 'Недопустимый формат'
+      },
+      {
+        rule: 'maxLength',
+        value: 15,
+        errorMessage: 'Недопустимый формат'
+      },
+    ])
+    .addField('#tel', [
+      {
+        rule: 'required',
+        errorMessage: 'Поле не заполнено',
+      },
+      {
+        validator: (value) => {
+          const phone = inputTel.inputmask.unmaskedvalue();
+          const result = Number(phone) && phone.length === 10;
+          return result;
+        },
+        errorMessage: 'Недопустимый формат'
+      },
+    ])
+    .addField('#email', [
+      {
+        rule: 'required',
+        errorMessage: 'Поле не заполнено',
+      },
+      {
+        rule: 'email',
+        errorMessage: 'Недопустимый формат'
+      },
+    ])
+    .addField('#check', [
+      {
+        validator: (value) => {
+          const check = document.querySelector('.checkbox__input');
+          return check.checked;
+        },
+        errorMessage: 'Примите пользовательское соглашение'
+      },
+    ])
+    .onSuccess((ev) => {
+      let formData = new FormData(ev.target);
+
+    let xhr = new XMLHttpRequest();
+
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState === 4) {
+        if (xhr.status === 200) {
+          if (afterSend) {
+            afterSend();
+          }
+          console.log('Отправлено');
+        }
       }
     }
-  },
-  messages: {
-    name:'Недопустимый формат',
-    tel: 'Укажите ваш телефон',
-    email: 'Недопустимый формат',
-    check: 'Примите пользовательское соглашение'
-  },
-  // submitHandler: function(thisForm) {
-  //   let formData = new FormData(thisForm);
+
+    xhr.open('POST', '/resources/mail.php', true);
+    xhr.send(formData);
+
+    ev.target.reset();
+    // alert('Отправлено')
+  })
+  // validateBeforeSubmitting: true,
+  // rules: {
+  //   validateBeforeSubmitting: true,
+  //   name: {
+  //     required: true,
+  //     minLength: 2,
+  //     maxLength: 20,
+  //   },
+  //   tel: {
+  //     required: true,
+  //     validateBeforeSubmitting: true,
+  //     function: (name, value) => {
+  //       const phone = inputTel.inputmask.unmaskedvalue();
+  //       const result = Number(phone) && phone.length === 10;
+  //       if(result){document.querySelector(`.form__input[name="${name}"]`).classList.add('green')};
+  //       return result;
+  //     }
+  //   },
+  //   email: {
+  //     required: true,
+  //     email: true
+  //   },
+  //   check: {
+  //     function: () => {
+  //       const check = document.querySelector('.checkbox__input');
+  //       return check.checked;
+  //     }
+  //   }
+  // },
+  // messages: {
+  //   name:'Недопустимый формат',
+  //   tel: 'Укажите ваш телефон',
+  //   email: 'Недопустимый формат',
+  //   check: 'Примите пользовательское соглашение'
+  // },
+  // submitHandler: function(form) {
+  //   let formData = new FormData(form);
 
   //   let xhr = new XMLHttpRequest();
+  //   xhr.open('POST', 'mail.php', true);
+  //   xhr.send(formData);
 
   //   xhr.onreadystatechange = function () {
   //     if (xhr.readyState === 4) {
@@ -167,9 +251,5 @@ new JustValidate('.connect__form', {
   //     }
   //   }
 
-  //   xhr.open('POST', 'mail.php', true);
-  //   xhr.send(formData);
-
-  //   thisForm.reset();
+  //   form.reset();
   // }
-})
