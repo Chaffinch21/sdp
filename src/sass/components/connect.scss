@@ -1,4 +1,9 @@
 .connect {
+  margin-bottom: 73px;
+
+  @media (max-width: 610px) {
+    margin-bottom: 67px;
+  }
 
   &__container {
     background-image: url('../img/connect-1920.png');

@@ -3,16 +3,48 @@ footer.footer
   .footer__top
     .container.footer__container
       .footer__left
-        a.footer__logo
+        a.footer__logo.logo(href="index.html")
           svg.logo__svg
-          use(xlink:href="img/sprite.svg#logo")
-        ul.footer__social.social
-        each item in list
-          li.social__item
-            a.social__link(href=item.href aria-label=item.label class=item.name target="_blank")
-              svg.social__svg
-                use(xlink:href=item.svg)
+            use(xlink:href="img/sprite.svg#logo")
+        ul.social.footer__social
+          each item in list
+            li.social__item
+              a.social__link(href=item.href aria-label=item.label class=item.name target="_blank")
+                svg.social__svg
+                  use(xlink:href=item.svg)
       .footer__right
+        nav.footer__menu
+          h3.footer__title О нас
+          ul.footer__list
+            li.footer__item
+              a.footer__link(href="#") О компании
+            li.footer__item
+              a.footer__link(href="#") Блог
+        nav.footer__menu
+          h3.footer__title Услуги
+          ul.footer__list
+            li.footer__item
+              a.footer__link(href="#") Доставка
+            li.footer__item
+              a.footer__link(href="#") Рассрочка и кредит
+            li.footer__item
+              a.footer__link(href="#") Сборка и установка
+        nav.footer__menu
+          h3.footer__title Связь с нами
+          ul.footer__list
+            li.footer__item
+              a.footer__link(href="#") Обратная связь
+            li.footer__item
+              a.footer__link(href="#") Контакты
+        nav.footer__menu
+          h3.footer__title Сотрудничество
+          ul.footer__list
+            li.footer__item
+              a.footer__link(href="#") Поставщикам
+            li.footer__item
+              a.footer__link(href="#") Оптовикам
+            li.footer__item
+              a.footer__link(href="#") Карьера
   .footer__bottom
     span.footer__copyright SDP
     span.footer__year 2011-2021

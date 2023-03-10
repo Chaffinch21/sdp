@@ -1,0 +1,34 @@
+.breadcrumps {
+  margin-top: 20px;
+  margin-bottom: 30px;
+  font-size: 14px;
+  color: $primary-color;
+
+  @media (max-width: 980px) {
+    margin-bottom: 28px;
+  }
+
+  @media (max-width: 410px) {
+    display: none;
+  }
+
+  &__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  &__item {
+    position: relative;
+    display: inline;
+
+    &:not(:last-child)::after {
+      content:'/';
+    }
+   }
+
+  &__link {
+    text-decoration: none;
+    color: $grey-color;
+  }
+}

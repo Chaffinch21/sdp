@@ -1,0 +1,20 @@
+.modal-form
+  .modal-form__block
+    button.modal__btn.modal-form__btn.modal-form__btn--js(type="button" aria-label="закрыть модальное окно")
+    .modal-form__start
+      h2.modal-form__title Купить в один клик
+      p.modal-form__descr Чтобы оформить заказ — заполните формы ниже и наш менеджер свяжется с вами в течении часа.
+      form.modal-form__form.form(action="#" method="post" name="form" enctype="multipart/form-data")
+        label.form__label
+          input.form__input( id="name" name="name" type="text" placeholder="Как вас зовут?" data-validate-field="name")          
+        label.form__label
+          input.form__input( id="tel" name="tel" type="tel" placeholder="Ваш телефон" data-validate-field="tel")
+        button.form__btn(type="submit") Отправить
+        label.checkbox
+          input.checkbox__input(id="check" type="checkbox" name="check" data-validate-field="check")
+          span.checkbox__text Принимаю 
+            a.checkbox__link(href="") пользовательское соглашение
+    .modal-form__end
+      svg.modal__svg
+        use(xlink:href="img/sprite.svg#slon")
+      h2.modal__title Спасибо, мы вам перезвоним!

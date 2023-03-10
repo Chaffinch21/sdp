@@ -1,0 +1,29 @@
+extends layout/app 
+
+block page
+  include chunk/header 
+  
+  main.main
+    include chunk/breadcrumps-catalog 
+    section.catalog
+      .container.catalog__container
+        .catalog__tag.catalog-tag
+          h2.catalog__title.catalog__title--tablet Каталог
+          .catalog-tag__block.catalog-tag__block--green
+            span.catalog-tag__text Диваны
+            button.catalog-tag__btn(type = "submit" aria-label="убрать фильтр")
+          .catalog-tag__block.catalog-tag__block--bone
+            span.catalog-tag__text До 150 000
+            button.catalog-tag__btn(type = "submit" aria-label="убрать фильтр")
+          .catalog-tag__block.catalog-tag__block--pinck
+            span.catalog-tag__text Без скидки
+            button.catalog-tag__btn(type = "submit" aria-label="убрать фильтр")
+          .catalog-tag__block.catalog-tag__block--grey
+            span.catalog-tag__text Оранжевый
+            button.catalog-tag__btn(type = "submit" aria-label="убрать фильтр")
+        include chunk/filter
+        include chunk/catalogList
+  include chunk/footer
+  include chunk/modal
+
+

@@ -1,0 +1,12 @@
+extends layout/app 
+
+block page
+  include chunk/header 
+  
+  main.main
+    include chunk/breadcrumps-catalog
+    include chunk/catalogItem
+    include chunk/similar
+  include chunk/footer
+  include chunk/modal-slider
+  include chunk/modal-form

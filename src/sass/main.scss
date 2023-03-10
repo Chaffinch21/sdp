@@ -3,6 +3,7 @@
 @import "mixins";
 @import "settings";
 @import "./components/header.scss";
+@import "./components/breadcrumps.scss";
 @import "./components/choises.scss";
 @import "./components/hero.scss";
 @import "./components/special.scss";
@@ -11,4 +12,11 @@
 @import "./components/categories.scss";
 @import "./components/useful.scss";
 @import "./components/connect.scss";
+@import "./components/filter.scss";
+@import "./components/catalog.scss";
+@import "./components/catalogItem.scss";
+@import "./components/similar.scss";
 @import "./components/footer.scss";
+@import "./components/modal.scss";
+@import "./components/modal-slider.scss";
+@import "./components/modal-form.scss";

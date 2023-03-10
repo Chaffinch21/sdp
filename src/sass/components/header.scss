@@ -665,11 +665,18 @@
         margin-left: -5px;
         margin-bottom: 5px;
       }
+
+      &:nth-child(2) {
+        @media (max-width: 550px){
+          margin-right: -5px;
+        }
+      }
     }
 
     &__link {
       @media (max-width: 550px){
         font-size: 14px;
+        text-align: left;
       }
     }
     

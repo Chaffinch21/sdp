@@ -1,0 +1,129 @@
+.modal {
+  visibility: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background: #333333b3;
+  z-index: 50;
+  opacity: 0;
+  transition: opacity .5s ease, visibility .5s ease, transform .5s ease;
+
+  &__block {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 624px;
+    height: 421px;
+    border-radius: 10px;
+    padding: 0;
+    margin: 0;
+    background-color: #ffffff;
+    transform: scale(0);
+    transition: transform .5s ease;
+
+    @media (max-width: 650px) {
+      width: 296px;
+      height: 216px;
+    }
+  }
+
+  &__svg {
+    @media (max-width: 650px) {
+      width: 73px;
+      height: 50px;
+    }
+  }
+
+  &__btn {
+    position: relative;
+    z-index: 200;
+    width: 20px;
+    height: 20px;
+    padding: 2px;
+    top: -70px;
+    right: -290px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    transition: background-color .3s ease-in-out;
+
+    @media (max-width: 650px) {
+      top: -35px;
+      right: -120px;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 8px;
+      width: 1px;
+      height: 21px;
+      background-color: $grey-color;
+      transform: rotate(45deg);
+      transition: background-color .3s ease-in-out;
+    }
+    
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 8px;
+      width: 1px;
+      height: 21px;
+      background-color: $grey-color;
+      transform: rotate(-45deg);
+      transition: background-color .3s ease-in-out;
+    }
+
+    &:hover:before,
+    &:hover:after {
+      background-color: $primary-color;
+    }
+
+    &:focus:before,
+    &:focus:after {
+      background-color: $primary-shade-color;
+    }
+
+    &:focus {
+      background-color: $pink-violet-color;
+    }
+
+    &:active:before,
+    &:active:after {
+      background-color: $primary-shade-color;
+    }
+
+    &:active {
+      background-color: transparent;
+    }
+  }
+
+  &__title {
+    font-family: 'OpenSans';
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 100%;
+
+    @media (max-width: 650px) {
+      font-size: 16px;
+    }
+  }
+}
+
+.modal.visible {
+  visibility: visible;
+  opacity: 1;
+}
+
+.modal.visible .modal__block {
+  transform: scale(1);
+}

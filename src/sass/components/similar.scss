@@ -1,0 +1,20 @@
+.similar {
+  margin-bottom: 73px;
+
+  &__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+
+  &__title {
+    font-size: 24px;
+  }
+
+  &__card {
+    height: 360px;
+    max-width: 236px;
+    padding: 20px 30px 33px 30px;
+  }
+}

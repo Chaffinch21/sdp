@@ -1,11 +1,11 @@
 -var submenu = [{name:"О компании", href:"#"}, {name:"Гарантия и возврат", href:"#"}, {name:"Корпоративным клиентам", href:"#"}, {name: "Дизайн-решение", href:"#"}]
 -var submenuHide = [{name:"О компании", href:"#"}, {name:"Гарантия и возврат", href:"#"}, {name:"Корпоративным клиентам", href:"#"}, {name: "Дизайн-решение", href:"#"}]
--var menu = [{name:"Каталог", href:"#"}, {name:"Магазины", href:"#"}, {name:"Шоу-рум", href:"#"}, {name: "Доставка и оплата", href:"#"}, {name: "Дисконт", href:"#"}, {name: "Контакты", href:"#"}]
+-var menu = [{name:"Каталог", href:"catalog.html"}, {name:"Магазины", href:"#"}, {name:"Шоу-рум", href:"#"}, {name: "Доставка и оплата", href:"#"}, {name: "Дисконт", href:"#"}, {name: "Контакты", href:"#"}]
 -var category = [{name:"Диваны", data:"divan"}, {name:"Кресла", data:"kresla"}, {name:"Пуфы", data:"pufi"}, {name:"Кровати", data:"krovati"}, {name:"Тумбы", data:"tumbi"}, {name:"Комоды", data:"komodi"}, {name:"Стулья", data:"stulya"}, {name:"Столы", data:"stoli"}, {name:"Аксессуары", data:"acsessuari"}]
 
 header.header
   .header__bar
-    a.logo(href="#")
+    a.logo(href="/index.html")
       svg.logo__svg
         use(xlink:href="img/sprite.svg#logo")
   .header__regtel
@@ -63,7 +63,7 @@ header.header
         span.burger__line
         span.burger__line
         span.burger__line
-      a.header__logo.middle__logo.logo(href="#")
+      a.header__logo.middle__logo.logo(href="index.html")
         svg.logo__svg
           use(xlink:href="img/sprite.svg#logo")
       nav.header__menu.menu

@@ -1,4 +1,4 @@
--var category = [{title:'Диваны', href:'#', class:'category--big category--popular', imgClass:'popular__img', png: 'img/category/category1-1920.png', imgtablet:'img/category/category1-1920.webp', alt: 'диван фото', list: [{name:'Прямые', link:'#'}, {name:'Угловые', link:'#'}, {name:'Модульные', link:'#'}]}, {title:'Кресла', href:'#', class:'category--big', imgClass:'', png: 'img/category/category2-1920.png', imgtablet: 'img/category/category2-1920.webp', imgmobile: 'img/category/category2-320.webp', alt: 'кресла фото', list: [{name:'Мягкие', link:'#'}, {name:'Кресла-кровати', link:'#'}]}, {title:'Кровати', href:'#', class:'', imgClass:'', png: 'img/category/category3-1920.png', img: [{tablet: 'img/category/category3-1920.webp'}], alt: 'кровать фото', list: [{name:'Односпальные', link:'#'}, {name:'Двуспальные', link:'#'}]}, {title:'Тумбы и комоды', href:'#', class:'', imgClass:'', png: 'img/category/category4-1920.png', img: [{tablet: 'img/category/category4-1920.webp'}], alt: 'комод фото', list: [{name:'Тумбы', link:'#'}, {name:'Комоды', link:'#'}]}, {title:'Стулья', href:'#', class:'', imgClass:'', png: 'img/category/category5-1920.png', img: [{tablet: 'img/category/category5-1920.webp'}], alt: 'стулья фото', list: [{name:'Деревянные', link:'#'}, {name:'Металлокаркас', link:'#'}]}]
+-var category = [{title:'Диваны', href:'#', class:'category--big category--popular', imgClass:'popular__img', png: 'img/category/category1-1920.png', imgmobile: 'img/category/category1-1920.png', imgtablet:'img/category/category1-1920.webp', alt: 'диван фото', list: [{name:'Прямые', link:'#'}, {name:'Угловые', link:'#'}, {name:'Модульные', link:'#'}]}, {title:'Кресла', href:'#', class:'category--big', imgClass:'', png: 'img/category/category2-1920.png', imgtablet: 'img/category/category2-1920.webp', imgmobile: 'img/category/category2-320.webp', alt: 'кресла фото', list: [{name:'Мягкие', link:'#'}, {name:'Кресла-кровати', link:'#'}]}, {title:'Кровати', href:'#', class:'', imgClass:'', png: 'img/category/category3-1920.png', imgmobile: 'img/category/category3-1920.png', imgtablet: 'img/category/category3-1920.webp', alt: 'кровать фото', list: [{name:'Односпальные', link:'#'}, {name:'Двуспальные', link:'#'}]}, {title:'Тумбы и комоды', href:'#', class:'', imgClass:'', png: 'img/category/category4-1920.png', imgmobile: 'img/category/category4-1920.png', imgtablet: 'img/category/category4-1920.webp', alt: 'комод фото', list: [{name:'Тумбы', link:'#'}, {name:'Комоды', link:'#'}]}, {title:'Стулья', href:'#', class:'', imgClass:'', png: 'img/category/category5-1920.png', imgtablet: 'img/category/category5-1920.webp', imgmobile: 'img/category/category5-1920.png', alt: 'стулья фото', list: [{name:'Деревянные', link:'#'}, {name:'Металлокаркас', link:'#'}]}]
 section.categories
   .container
     .title.categories__title Топ категории
@@ -6,8 +6,8 @@ section.categories
     each item in category
       .categories__card.category(class=item.class)
         picture.category__picture
-          source.category__img(class=item.imgClass src=item.imgtablet type="image/webp" media="(min-width: 768px)")
-          source.category__img(class=item.imgClass src=item.imgmobile type="image/webp" media="(max-width: 767px)")
+          source.category__img(class=item.imgClass srcset=item.imgtablet type="image/webp" media="(min-width: 768px)")
+          source.category__img(class=item.imgClass srcset=item.imgmobile type="image/webp" media="(max-width: 767px)")
           img.category__img(class=item.imgClass src=item.png alt=item.alt)
         ul.category__list
           each elem in item.list
@@ -15,6 +15,6 @@ section.categories
               a.category__link(href=elem.link)= elem.name
         .category__wrap
           h3.category__title= item.title
-          a.category__bottom(href=item.href)
-            span.category__btn В каталог
-            span.category__arrow.arrow__right
+          a.category__bottom.catalog-href(href=item.href)
+            span.category__btn.catalog-href__text В каталог
+            span.category__arrow.catalog-href__arrow.arrow__right
