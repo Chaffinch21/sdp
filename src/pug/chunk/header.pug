@@ -41,7 +41,7 @@ header.header
           each item in submenu
             li.submenu__item
               a.submenu__link(href=item.href)= item.name
-      nav.header__user--hide.user
+      nav.header__user.header__user--hide.user
         ul.user__list
           li.user__item
             a.user__link(href="#")
@@ -92,7 +92,7 @@ header.header
               use(xlink:href="img/sprite.svg#search")
           button.search__btn(aria-label="найти")
         select.header__category.category(name="select" id="selectCategory")
-          option.category__item.choices__heading(value="категория" data-art="kategory") Категория
+          option.category__item(value="категория" data-art="kategory") Категория
           each item in category
             option.category__item(value=item.name data-art=item.data)= item.name
       nav.header__user.user

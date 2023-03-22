@@ -20,6 +20,7 @@ const catalogCard = document.querySelectorAll('.catalog-card');
 const catalogWrap = document.querySelector('.catalog__wrap');
 const catalogNavigation = document.querySelector('.catalog__navigation');
 const production = document.querySelector('.production');
+const collaboration = document.querySelector('.collaboration');
 
 const choices = new Choices(selectEl, {
   searchEnabled: false,
@@ -60,6 +61,24 @@ selectCategory.addEventListener('change', function(){
 burgerEl.addEventListener('click', function(ev){
   document.querySelector('.header').classList.toggle('open-burger');
 })
+
+function addBreadCrumpsItemLink(text, link){
+  const breadCrumpsItem = document.createElement('li');
+  breadCrumpsItem.className = 'breadcrumps__item';
+  breadCrumpsLink = document.createElement('a');
+  breadCrumpsLink.className = 'breadcrumps__link';
+  breadCrumpsLink.textContent = text;
+  breadCrumpsLink.href = link;
+  breadCrumpsItem.append(breadCrumpsLink);
+  document.querySelector('.breadcrumps__list').append(breadCrumpsItem);
+}
+
+function addBreadCrumpsItem(text){
+  const breadCrumpsItem = document.createElement('li');
+  breadCrumpsItem.className = 'breadcrumps__item';
+  breadCrumpsItem.textContent = text;
+  document.querySelector('.breadcrumps__list').append(breadCrumpsItem);
+}
 
 if(document.querySelector('.hero__swiper')){
   const swiper = new Swiper('.hero__swiper', {
@@ -226,10 +245,13 @@ const validator = new JustValidate('.connect__form', {
     })
 }
 
-    modalBtn.addEventListener('click', function(ev){
-      modal.classList.remove('visible');
-      document.querySelector('body').style.overflow = 'auto';
-    })
+    if(modalBtn) {
+      modalBtn.addEventListener('click', function(ev){
+        modal.classList.remove('visible');
+        document.querySelector('body').style.overflow = 'auto';
+      })
+    }
+    
 
     if(rangeSlider){
       noUiSlider.create(rangeSlider, {
@@ -269,6 +291,9 @@ const validator = new JustValidate('.connect__form', {
     }
 
     if (filter) {
+      addBreadCrumpsItemLink(' Каталог /', 'catalog.html');
+      addBreadCrumpsItemLink(' Диваны /', '#');
+      addBreadCrumpsItem(' Прямые диваны');
       const catalogTagGreen = document.querySelector('.catalog-tag__block--green');
       const catalogTagPinck = document.querySelector('.catalog-tag__block--pinck');
       const catalogTagGrey = document.querySelector('.catalog-tag__block--grey');
@@ -440,22 +465,15 @@ const validator = new JustValidate('.connect__form', {
               } 
             })
           }
-          // categoryListEl.classList.toggle('invisible');
-          // categoryTitleEl.classList.toggle('open-list');
         })
       }
     }
 
   if (production) {
-    breadCrumpsLink = document.createElement('a');
-    breadCrumpsLink.className = 'breadcrumps__link';
-    breadCrumpsLink.setAttribute.href = 'catalog.html';
-    breadCrumpsLink.textContent= 'Прямые диваны /';
-    document.querySelector('.breadcrumps__list').lastElementChild.replaceWith(breadCrumpsLink);
-    const breadCrumpsItem = document.createElement('li');
-    breadCrumpsItem.className = 'breadcrumps__item';
-    breadCrumpsItem.textContent= 'D-31';
-    document.querySelector('.breadcrumps__list').append(breadCrumpsItem);
+    addBreadCrumpsItemLink(' Каталог /', 'catalog.html');
+      addBreadCrumpsItemLink(' Диваны /', '#');
+      addBreadCrumpsItemLink(' Прямые диваны /');
+      addBreadCrumpsItem(' D-31');
 
     const swiperProduction = new Swiper(".site-slider__slider", {
       loop: false,
@@ -466,7 +484,18 @@ const validator = new JustValidate('.connect__form', {
         sticky: true,
       },
       watchSlidesProgress: true,
-      grabCursor: true
+      grabCursor: true,
+      breakpoints: {  
+        0: {
+          direction: 'horizontal',
+        },
+        611: {
+          direction: 'vertical',
+        },
+        871: {
+          direction: 'horizontal',
+        },
+      }
     });
     const thumbswiperProduction = new Swiper(".site-slider__thumbslider", {
       spaceBetween: 10,
@@ -484,6 +513,10 @@ const validator = new JustValidate('.connect__form', {
       watchSlidesProgress: true,
       grabCursor: true,
       allowSlideNext: true,
+      navigation: {
+        nextEl: '.modal-slider__next',
+        prevEl: '.modal-slider__back',
+      }
     });
     const thumbModalSlider = new Swiper(".modal-slider__thumbslider", {
       spaceBetween: 10,
@@ -495,23 +528,30 @@ const validator = new JustValidate('.connect__form', {
 
     const similarSlider = new Swiper(".similar__slider", {
       spaceBetween: 32,
-      navigation: {
-        nextEl: ".similar__next",
-        prevEl: ".similar__back"
-      },
+      slidesPerView: 4,
       breakpoints: {  
+        0: {
+          slidesPerView: 2,
+          spaceBetween: 16,
+        },
+
         610: {
-          slidesPerView: 3,
+          slidesPerView: 2,
+          spaceBetween: 32,
         },
     
         1023: {
           slidesPerView: 3,
         },
     
-        1281: {
+        1330: {
           slidesPerView: 4,
         }
-      }
+      },
+      navigation: {
+        nextEl: ".similar__next",
+        prevEl: ".similar__back"
+      },
     });
 
     const slideBtn = document.querySelectorAll('.production__thumbslide');
@@ -535,6 +575,9 @@ const validator = new JustValidate('.connect__form', {
     productionSale.addEventListener('click', function(ev){
       modalFormVisible.classList.add('visible');
       document.querySelector('body').style.overflow = 'hidden';
+      if (window.innerWidth<611) {
+        document.querySelector('.modal-form__block').classList.remove('modal-form__block--height');
+      }
     })
 
     modalFormClose.addEventListener('click', function(ev){
@@ -595,6 +638,9 @@ const validator = new JustValidate('.connect__form', {
         .onSuccess((ev) => {
           document.querySelector('.modal-form__start').style.display='none';
           document.querySelector('.modal-form__end').style.display='flex';
+          if (window.innerWidth<611) {
+            document.querySelector('.modal-form__block').classList.add('modal-form__block--height');
+          }
           let formData = new FormData(ev.target);
     
           let xhr = new XMLHttpRequest();
@@ -617,5 +663,9 @@ const validator = new JustValidate('.connect__form', {
         })
     }
   }
+
+    if (collaboration) {
+      addBreadCrumpsItem('Сотрудничество')
+    }
     
 }

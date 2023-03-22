@@ -1,28 +1,31 @@
 .modal-slider
   .modal-slider__block
     button.modal__btn.modal-slider__btn.modal-slider__btn--js(type="button" aria-label="закрыть модальное окно")
-    .production-slide__modal
     .swiper.production__thumbslider.modal-slider__thumbslider
       .swiper-wrapper.production__thumbwrapper
         .swiper-slide.production__thumbslide
-          img.production__thumbimg(src="img/production/big.png")
+          img.production__thumbimg(src="img/production/big.png" alt="фото дивана")
         .swiper-slide.production__thumbslide
-          img.production__thumbimg(src="img/production/1.png")
+          img.production__thumbimg(src="img/production/1.png" alt="фото дивана")
         .swiper-slide.production__thumbslide
-          img.production__thumbimg(src="img/production/2.png")
+          img.production__thumbimg(src="img/production/2.png" alt="фото дивана")
         .swiper-slide.production__thumbslide
-          img.production__thumbimg(src="img/production/3.png")
+          img.production__thumbimg(src="img/production/3.png" alt="фото дивана")
         .swiper-slide.production__thumbslide
-          img.production__thumbimg(src="img/production/4.png")
-    .swiper.production__slider.modal-slider__slider(thumbsSlider="")
-      .swiper-wrapper.production__wrapper
-        .swiper-slide.production__slide
-          img.production__img(src="img/production/big.png")
-        .swiper-slide.production__slide
-          img.production__img(src="img/production/1.png")
-        .swiper-slide.production__slide
-          img.production__img(src="img/production/2.png")
-        .swiper-slide.production__slide
-          img.production__img(src="img/production/3.png")
-        .swiper-slide.production__slide
-          img.production__img(src="img/production/4.png")
+          img.production__thumbimg(src="img/production/4.png" alt="фото дивана")
+    .modal-slider__container
+      .special__navigation.modal-slider__navigation
+        button.special__back.modal-slider__back(aria-label="Листать назад")
+        button.special__next.modal-slider__next(aria-label="Листать вперед")
+      .swiper.production__slider.modal-slider__slider
+        .swiper-wrapper.production__wrapper
+          .swiper-slide.production__slide
+            img.production__img(src="img/production/big.png" alt="фото дивана")
+          .swiper-slide.production__slide
+            img.production__img(src="img/production/1.png" alt="фото дивана")
+          .swiper-slide.production__slide
+            img.production__img(src="img/production/2.png" alt="фото дивана")
+          .swiper-slide.production__slide
+            img.production__img(src="img/production/3.png" alt="фото дивана")
+          .swiper-slide.production__slide
+            img.production__img(src="img/production/4.png" alt="фото дивана")

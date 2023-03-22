@@ -21,10 +21,6 @@
   &__item {
     position: relative;
     display: inline;
-
-    &:not(:last-child)::after {
-      content:'/';
-    }
    }
 
   &__link {

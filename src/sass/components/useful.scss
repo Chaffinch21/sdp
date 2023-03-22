@@ -1,6 +1,10 @@
 .useful {
   margin-bottom: 70px;
 
+  @media (max-width: 768px) {
+    margin-bottom: 77px;
+  }
+
   @media (max-width: 610px) {
     position: relative;
     padding-bottom: 45px;
@@ -14,7 +18,7 @@
     flex-wrap: wrap;
     margin-bottom: 30px;
 
-    @media (max-width: 610px) {
+    @media (max-width: 768px) {
       margin-bottom: 24px;
     }
   }
