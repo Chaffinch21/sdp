@@ -24,7 +24,7 @@
 
   &__subtitle {
     margin: 0;
-    font-family: 'OpenSans';
+    font-family: 'OpenSans', sans-serif;
     font-weight: 400;
     font-size: 24px;
     line-height: 33px;
@@ -36,7 +36,7 @@
 
   &__text {
     margin: 0;
-    font-family: 'OpenSans';
+    font-family: 'OpenSans', sans-serif;
     font-weight: 400;
     font-size: 16px;
     line-height: 180%;
@@ -127,7 +127,7 @@
     &__head {
       margin: 0;
       margin-top: 12px;
-      font-family: 'OpenSans';
+      font-family: 'OpenSans', sans-serif;
       font-weight: 600;
       font-size: 16px;
       line-height: 22px;
@@ -198,7 +198,7 @@
       margin: 0;
       padding: 20px 0 30px 110px;
       margin-top: 17px;
-      font-family: 'OpenSans';
+      font-family: 'OpenSans', sans-serif;
       font-weight: 400;
       font-size: 24px;
       line-height: 150%;

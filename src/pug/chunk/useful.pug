@@ -3,9 +3,9 @@ section.useful
   .container.useful__container
     .useful__top
       h2.title.useful__title Полезное
-      .useful__navigation
-        button.useful__back(aria-label="Листать назад")
-        button.useful__next(aria-label="Листать вперед")
+      .slider-navigation.useful__navigation
+        button.slider-navigation__back.useful__back(aria-label="Листать назад")
+        button.slider-navigation__next.useful__next(aria-label="Листать вперед")
     .swiper.useful__swiper.useful-slider-js
       .swiper-wrapper.useful__list
         each item in usefulList

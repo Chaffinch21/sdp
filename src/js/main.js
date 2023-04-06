@@ -83,14 +83,38 @@ function addBreadCrumpsItem(text){
 if(document.querySelector('.hero__swiper')){
   const swiper = new Swiper('.hero__swiper', {
     loop: true,
+    autoHeight: false,
     pagination: {
-      el: '.swiper-pagination',
+      el: '.hero__pagination',
+      bulletClass:'hero-bullit',
       clickable: true,
+      bulletActiveClass: 'hero-bullit__active',
+      renderBullet: function () {
+        return `<span class="hero-bullit">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="-1 -1 34 34">
+    
+          <circle cx="16" cy="16" r="15.9155" class="hero-bullit__background" />
+    
+          <circle cx="16" cy="16" r="15.9155" class="hero-bullit__progress" />
+        </svg>
+      </span>`;
+      },
     },
-    autoplay: {
-      delay: 4000,
-    },
+    // autoplay: {
+    //   delay: 4000,
+    // }, 
   });
+  setTimeout(function(){document.querySelector('.hero-bullit__active').classList.add('active')}, 500);
+  swiper.on('slideChange', function () {
+    swiper.autoplay.stop()
+    document.querySelectorAll('.hero-bullit').forEach(el=>{el.classList.remove('active')});
+    document.querySelector('.hero-bullit__active').classList.add('active');
+  });
+  document.querySelectorAll('.hero-bullit').forEach(el=>{
+    el.addEventListener('transitionend', () => {
+      swiper.slideNext();
+    });
+  })
 }
 
 if(document.querySelector('.special-slider-js')){
@@ -134,7 +158,7 @@ if(document.querySelector('.useful-slider-js')){
     },
   
     breakpoints: {
-      320: {
+      310: {
         slidesPerView: 1,
       },
   
@@ -246,10 +270,12 @@ const validator = new JustValidate('.connect__form', {
 }
 
     if(modalBtn) {
-      modalBtn.addEventListener('click', function(ev){
-        modal.classList.remove('visible');
-        document.querySelector('body').style.overflow = 'auto';
-      })
+      document.querySelector('.modal').addEventListener('click', function(ev){
+        if((ev.target == modalBtn) || (ev.target.classList.contains('modal'))) {
+          modal.classList.remove('visible');
+          document.querySelector('body').style.overflow = 'auto';
+        }
+      });
     }
     
 
@@ -448,7 +474,7 @@ const validator = new JustValidate('.connect__form', {
       } 
 
       if (window.innerWidth < 1280) {
-        const categoryListEl = document.querySelectorAll('.filter-list__js');
+        const categoryListEl = document.querySelectorAll('.filter-list');
         const filterTitleEl = document.querySelectorAll('.filter__subtitle');
         categoryListEl.forEach(el=>{
           el.classList.add('invisible');
@@ -475,7 +501,7 @@ const validator = new JustValidate('.connect__form', {
       addBreadCrumpsItemLink(' Прямые диваны /');
       addBreadCrumpsItem(' D-31');
 
-    const swiperProduction = new Swiper(".site-slider__slider", {
+    const swiperProduction = new Swiper(".production__slider", {
       loop: false,
       spaceBetween: 10,
       slidesPerView: 4,
@@ -497,7 +523,7 @@ const validator = new JustValidate('.connect__form', {
         },
       }
     });
-    const thumbswiperProduction = new Swiper(".site-slider__thumbslider", {
+    const thumbswiperProduction = new Swiper(".production__thumbslider", {
       spaceBetween: 10,
       thumbs: {
         swiper: swiperProduction,
@@ -528,7 +554,6 @@ const validator = new JustValidate('.connect__form', {
 
     const similarSlider = new Swiper(".similar__slider", {
       spaceBetween: 32,
-      slidesPerView: 4,
       breakpoints: {  
         0: {
           slidesPerView: 2,
@@ -540,7 +565,7 @@ const validator = new JustValidate('.connect__form', {
           spaceBetween: 32,
         },
     
-        1023: {
+        970: {
           slidesPerView: 3,
         },
     
@@ -554,7 +579,7 @@ const validator = new JustValidate('.connect__form', {
       },
     });
 
-    const slideBtn = document.querySelectorAll('.production__thumbslide');
+    const slideBtn = document.querySelectorAll('.product-thumbslider__thumbslide');
     const productionSale = document.querySelector('.production__sale');
     const modalSliderVisible = document.querySelector('.modal-slider');
     const modalFormVisible = document.querySelector('.modal-form');
@@ -567,9 +592,11 @@ const validator = new JustValidate('.connect__form', {
       })
     });
 
-    modalSliderClose.addEventListener('click', function(ev){
-      modalSliderVisible.classList.remove('visible');
-      document.querySelector('body').style.overflow = 'auto';
+    document.querySelector('.modal-slider').addEventListener('click', function(ev){
+      if((ev.target == modalSliderClose) || (ev.target.classList.contains('modal-slider'))) {
+        modalSliderVisible.classList.remove('visible');
+        document.querySelector('body').style.overflow = 'auto';
+      }
     });
 
     productionSale.addEventListener('click', function(ev){
@@ -580,11 +607,14 @@ const validator = new JustValidate('.connect__form', {
       }
     })
 
-    modalFormClose.addEventListener('click', function(ev){
-      modalFormVisible.classList.remove('visible');
-      document.querySelector('body').style.overflow = 'auto';
-      document.querySelector('.modal-form__start').style.display = 'flex';
-      document.querySelector('.modal-form__end').style.display = 'none';
+    document.querySelector('.modal-form').addEventListener('click', function(ev){
+      console.log(ev.target);
+      if((ev.target == modalFormClose) || (ev.target.classList.contains('modal-form'))) {
+        modalFormVisible.classList.remove('visible');
+        document.querySelector('body').style.overflow = 'auto';
+        document.querySelector('.modal-form__start').style.display = 'flex';
+        document.querySelector('.modal-form__end').style.display = 'none';
+      }
     });
 
     if(document.querySelector('.modal-form__form')){

@@ -2,38 +2,20 @@ section.hero
   h1.visually-hidden SitDownPls
   .swiper.swiper-js.hero__swiper
     .swiper-wrapper.hero__wrapper
-      .swiper-slide.hero__slide
-        picture.hero__picture
-          source.hero__img(srcset="img/hero1-320.webp" type="image/webp" media="(max-width: 400px)")
-          source.hero__img(srcset="img/hero1-768.webp" type="image/webp" media="(max-width: 768px)")
-          source.hero__img(srcset="img/hero1-1024.webp" type="image/webp" media="(max-width: 1024px)")
-          source.hero__img(srcset="img/hero1-1920.webp" type="image/webp" media="(min-width: 1025px)")
-          img.hero__img(src="img/hero1-1920.jpg" alt="фото дивана")
+      .swiper-slide.hero__slide.hero__slide--one
         .container.hero__container
           h2.hero__title
             |Скидка 15% 
             span.nobr на&nbsp;первую покупку
           button.hero__button Получить!
-      .swiper-slide.hero__slide
-        picture.hero__picture
-          source.hero__img(srcset="img/hero2-320.webp" type="image/webp" media="(max-width: 400px)")
-          source.hero__img(srcset="img/hero2-768.webp" type="image/webp" media="(max-width: 768px)")
-          source.hero__img(srcset="img/hero2-1024.webp" type="image/webp" media="(max-width: 1024px)")
-          source.hero__img(srcset="img/hero2-1920.webp" type="image/webp" media="(min-width: 1025px)")
-          img.hero__img(src="img/hero2-1920.jpg" alt="фото растения в горшке")
+      .swiper-slide.hero__slide.hero__slide--two
         .container.hero__container
           h2.hero__title
             span.nobr 100+&nbsp;аксeссуаров
             span  
             span.nobr для&nbsp;дома
           button.hero__button Подробнее
-      .swiper-slide.hero__slide
-        picture.hero__picture
-          source.hero__img(srcset="img/hero3-320.webp" type="image/webp" media="(max-width: 400px)")
-          source.hero__img(srcset="img/hero3-768.webp" type="image/webp" media="(max-width: 768px)")
-          source.hero__img(srcset="img/hero3-1024.webp" type="image/webp" media="(max-width: 1024px)")
-          source.hero__img(srcset="img/hero3-1920.webp" type="image/webp" media="(min-width: 1025px)")
-          img.hero__img(src="img/hero3-1920.jpg" alt="фото ткани")
+      .swiper-slide.hero__slide.hero__slide--three
         .container.hero__container
           h2.hero__title.hero__title--light
             span.nobr Коллекция стильного
@@ -41,3 +23,5 @@ section.hero
             span.nobr и яркого текстиля
           button.hero__button Подробнее
     .swiper-pagination.hero__pagination
+  .container
+    button.hero__button.hero__mobile Получить!

@@ -1,8 +1,15 @@
 .connect {
-  margin-bottom: 73px;
+  padding-top: 35px;
+  padding-bottom: 70px;
+
+  @media (max-width: 768px) {
+    padding-top: 38px;
+    padding-bottom: 70px;
+  }
 
   @media (max-width: 610px) {
-    margin-bottom: 67px;
+    padding-top: 78px;
+    padding-bottom: 67px;
   }
 
   &__container {
@@ -41,7 +48,7 @@
     width: 50%;
     margin: 0;
     margin-bottom: 16px;
-    font-family: 'OpenSans';
+    font-family: 'OpenSans', sans-serif;
     font-weight: 400;
     font-size: 14px;
     line-height: 19px;
@@ -75,6 +82,10 @@
       color: $light-text;
       background-color: $secondary-color;
     }
+  }
+
+  &__form {
+    position: relative;
   }
   
 }
@@ -227,8 +238,9 @@
 }
 
 .connect__form>.just-validate-error-label {
-  position: static;
-  padding-left: 20px;
+  position: absolute;
+  top: auto;
+  bottom: -20px;
 }
 
 .just-validate-error-field {

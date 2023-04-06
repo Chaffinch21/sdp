@@ -2,19 +2,19 @@
 section.categories
   .container
     .title.categories__title Топ категории
-  .container.categories__container
-    each item in category
-      .categories__card.category(class=item.class)
-        picture.category__picture
-          source.category__img(class=item.imgClass srcset=item.imgtablet type="image/webp" media="(min-width: 768px)")
-          source.category__img(class=item.imgClass srcset=item.imgmobile type="image/webp" media="(max-width: 767px)")
-          img.category__img(class=item.imgClass src=item.png alt=item.alt)
-        ul.category__list
-          each elem in item.list
-            li.category__item
-              a.category__link(href=elem.link)= elem.name
-        .category__wrap
-          h3.category__title= item.title
-          a.category__bottom.catalog-href(href=item.href)
-            span.category__btn.catalog-href__text В каталог
-            span.arrow__right.category__arrow.catalog-href__arrow
+    .categories__container
+      each item in category
+        .categories__card.category(class=item.class)
+          picture.category__picture
+            source.category__img(class=item.imgClass srcset=item.imgtablet type="image/webp" media="(min-width: 768px)")
+            source.category__img(class=item.imgClass srcset=item.imgmobile type="image/webp" media="(max-width: 767px)")
+            img.category__img(class=item.imgClass src=item.png alt=item.alt)
+          ul.category__list
+            each elem in item.list
+              li.category__item
+                a.category__link(href=elem.link)= elem.name
+          .category__wrap
+            h3.category__title= item.title
+            a.category__bottom.catalog-href(href=item.href)
+              span.category__btn.catalog-href__text В каталог
+              span.category__arrow.catalog-href__arrow

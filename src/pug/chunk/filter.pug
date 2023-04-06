@@ -3,10 +3,10 @@
 - var colorList = [{name: 'Коричневый'}, {name: 'Черный'}, {name: 'Бежевый'}, {name: 'Серый'}, {name: 'Белый'}, {name: 'Синий'}, {name: 'Оранжевый'}, {name: 'Желтый'}, {name: 'Зеленый'}]
 .filter
   h2.filter__title Фильтровать по:
-  h2.filter__title--tablet Фильтры:
+  h2.filter__title.filter__title-tablet Фильтры:
   .filter-category
     .filter__subtitle.filter-category__title Категория
-    ul.filter-category__list.check.filter-list__js
+    ul.filter-category__list.check.filter-list
       each item in categoryList
         li.filter-category__item.check__item
           label.check__label.filter-category__label
@@ -17,7 +17,7 @@
         button.check__btn + ещё 12
   .filter-price
     .filter__subtitle.filter-price__title Цена
-    .filter-price__wrap.filter-list__js
+    .filter-price__wrap.filter-list
       .filter-price__range
         span.filter-price__text от
         input.filter-price__input(type="text" id="input-0")
@@ -27,7 +27,7 @@
     .filter-price__slider(id="range-slider")
   .filter-sale
     .filter__subtitle.filter-sale__title Скидка
-    ul.check.filter-sale__list.filter-list__js
+    ul.check.filter-sale__list.filter-list
       each item in saleList
         li.check__item.filter-sale__item
           label.check__label.filter-sale__label
@@ -36,7 +36,7 @@
             span.check__text= item.name
   .filter-color
     .filter__subtitle.filter-color__title Цвет
-    ul.check.filter-color__list.filter-list__js
+    ul.check.filter-color__list.filter-list
       each item in colorList
         li.check__item.filter-color__item
           label.check__label.filter-color__label
@@ -50,6 +50,6 @@
     .filter-banner__bottom
       h3.filter-banner__title Оксфорд 1950
       p.filter-banner__descr Новая коллекция изысканных кресел
-      a.category__bottom.catalog-href(href="#")
-        span.category__btn.catalog-href__text В каталог
-        span.category__arrow.catalog-href__arrow.arrow__right
+      a.catalog-href.filter-banner__href(href="#")
+        span.catalog-href__text.filter-banner__text В каталог
+        span.catalog-href__arrow.filter-banner__arrow

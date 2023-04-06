@@ -3,6 +3,7 @@
 
   &__block {
     position: relative;
+    top: 100px;
     width: 624px;
     height: 421px;
     padding: 30px;
@@ -58,7 +59,7 @@
   &__title {
     margin: 0;
     margin-bottom: 8px;
-    font-family: 'OpenSans';
+    font-family: 'OpenSans', sans-serif;
     font-weight: 400;
     font-size: 32px;
     line-height: 100%;
@@ -72,7 +73,7 @@
     margin: 0;
     margin-bottom: 30px;
     width: 65%;
-    font-family: 'OpenSans';
+    font-family: 'OpenSans', sans-serif;
     font-weight: 400;
     font-size: 14px;
     line-height: 19px;

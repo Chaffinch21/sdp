@@ -27,7 +27,7 @@
 
   &__title {
     margin: 0;
-    font-family: 'OpenSans';
+    font-family: 'OpenSans', sans-serif;
     font-weight: 400;
     font-size: 18px;
     line-height: 130%;
@@ -37,10 +37,10 @@
       display: none;
     }
 
-    &--tablet {
+    &-tablet {
       display: none;
       margin: 0;
-      font-family: 'OpenSans';
+      font-family: 'OpenSans', sans-serif;
       font-weight: 400;
       font-size: 14px;
       line-height: 18.2px;
@@ -60,7 +60,7 @@
   &__subtitle {
     margin: 0;
     margin-bottom: 10px;
-    font-family: 'OpenSans';
+    font-family: 'OpenSans', sans-serif;
     font-weight: 600;
     font-size: 16px;
     line-height: 130%;
@@ -253,7 +253,7 @@
       max-width: 80%;
       margin: 0;
       margin-bottom: 10px;
-      font-family: 'OpenSans';
+      font-family: 'OpenSans', sans-serif;
       font-weight: 400;
       font-size: 16px;
       line-height: 22px;
@@ -315,7 +315,7 @@
   }
 
   &__text {
-    font-family: 'OpenSans';
+    font-family: 'OpenSans', sans-serif;
     font-weight: 400;
     font-size: 16px;
     line-height: 130%;
