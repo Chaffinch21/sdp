@@ -1,24 +1,27 @@
 .similar {
-  padding-top: 32px;
-  padding-bottom: 73px;
+  padding-top: 35px;
+  padding-bottom: 66px;
 
-  @media (max-width: 870px) {
-    padding-top: 14px;
-    padding-bottom: 69px;
+  @media (max-width: 1024px) {
+    padding-top: 30px;
   }
 
-  @media (max-width: 610px) {
-    padding-top: 45px;
-    padding-bottom: 75px;
+  @media (max-width: 768px) {
+    padding-top: 18px;
+  }
+
+  @media (max-width: 600px) {
+    padding-top: 48px;
+    padding-bottom: 118px;
   }
 
   &__head {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 26px;
+    margin-bottom: 23px;
 
-    @media (max-width: 610px) {
+    @media (max-width: 600px) {
       position: relative;
     }
   }
@@ -28,40 +31,33 @@
   }
 
   &__navigation {
-    @media (max-width: 610px) {
+    @media (max-width: 600px) {
       position: absolute;
-      top: 370px;
+      top: 340px;
     }
 
-    @media (max-width: 370px) {
-      top: 350px;
+    @media (max-width: 390px) {
+      top: 345px;
     }
   }
 
   &__card {
     box-sizing:border-box;
-    // height: 420px;
-    // max-width: 296px;
 
-    @media (max-width: 1330px) {
-      // max-width: 366px;
+    @media (max-width: 600px) {
+      padding-bottom: 14px;
     }
-
-    @media (max-width: 1024px) {
-      // max-width: 496px;
-    }
-
-    @media (max-width: 870px) {
-    }
-
-    @media (max-width: 610px) {
-    }
+    
   }
 
   &__reiting {
     top: 25px;
 
-    @media (max-width: 610px) {
+    @media (max-width: 1024px) {
+      top: 29px;
+    }
+
+    @media (max-width: 600px) {
       top: 20px;
     }
   }
@@ -74,10 +70,10 @@
     }
 
     @media (max-width: 768px) {
-      min-height: 90px;
+      min-height: 110px;
     }
 
-    @media (max-width: 610px) {
+    @media (max-width: 600px) {
       min-height: 105px;
     }
   }
@@ -89,10 +85,10 @@
     }
 
     @media (max-width: 768px) {
-      min-height: 180px;
+      min-height: 190px;
     }
 
-    @media (max-width: 610px) {
+    @media (max-width: 600px) {
       min-height: 62px;
       max-height: 70px;
       object-fit: contain;
@@ -101,26 +97,35 @@
 
 
   &__bottom {
-    @media (max-width: 560px) {
-      padding: 0 2px;
+    padding-top: 5px;
+
+    @media (max-width: 1024px) {
+      padding-top: 5px;
+    }
+
+    @media (max-width: 768px) {
+      padding-top: 12px;
+    }
+
+    @media (max-width: 600px) {
+      padding: 2px 0px;
     }
   }
 
   &__button {
-    @media (max-width: 610px) {
+    @media (max-width: 600px) {
       padding: 6px 20px;
-      margin-top: 13px;
     }
   }
 
   &__cardtitle {
-    @media (max-width: 610px) {
+    @media (max-width: 600px) {
       margin-bottom: 10px;
     }
   }
 
   &__model {
-    @media (max-width: 610px) {
+    @media (max-width: 600px) {
       font-size: 16px;
     }
   }
@@ -129,27 +134,27 @@
     @media (max-width: 768px) {
       margin-top: 0px;
     }
-    @media (max-width: 610px) {
+    @media (max-width: 600px) {
       margin-top: 0px;
       font-size: 16px;
       line-height: 20px;
     }
-    @media (max-width: 410px) {
+    @media (max-width: 390px) {
       -webkit-line-clamp: 2;
       
     }
   }
 
   &__price {
-    @media (max-width: 610px) {
-      margin-bottom: 3px;
+    @media (max-width: 600px) {
+      margin-bottom: 14px;
     }
   }
     
 }
 
 .similar__picture img {
-  @media (max-width: 610px){
+  @media (max-width: 600px){
     max-height: 75px;
   }
 }

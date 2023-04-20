@@ -30,14 +30,14 @@
     transform: scale(0);
     transition: transform .5s ease;
 
-    @media (max-width: 650px) {
+    @media (max-width: 720px) {
       width: 296px;
       height: 216px;
     }
   }
 
   &-svg {
-    @media (max-width: 650px) {
+    @media (max-width: 720px) {
       width: 73px;
       height: 50px;
     }
@@ -56,7 +56,7 @@
     cursor: pointer;
     transition: background-color .3s ease-in-out;
 
-    @media (max-width: 650px) {
+    @media (max-width: 720px) {
       top: -35px;
       right: -120px;
     }
@@ -115,7 +115,7 @@
     font-size: 32px;
     line-height: 100%;
 
-    @media (max-width: 650px) {
+    @media (max-width: 720px) {
       font-size: 16px;
     }
   }

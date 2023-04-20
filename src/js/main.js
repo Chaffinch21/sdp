@@ -1,5 +1,6 @@
 window.onload = function(){
-  const selectEl = document.querySelector('#selectCustom');
+const headerEl =  document.querySelector('.header');
+const selectEl = document.querySelector('#selectCustom');
 const selectHideEl = document.querySelector('#selectCustomHide');
 const selectCategory = document.querySelector('#selectCategory');
 const searchInput = document.querySelector('.search__input');
@@ -12,15 +13,16 @@ const modal = document.querySelector('.modal');
 const modalBtn = document.querySelector('.modal__btn');
 const rangeSlider = document.getElementById('range-slider');
 const filter = document.querySelector('.filter');
+const filterListEl = document.querySelectorAll('.filter-list');
 const filterCategoryList = document.querySelectorAll('.filter-category__item');
 const filterSaleList = document.querySelectorAll('.filter-sale__item');
 const filterColorList = document.querySelectorAll('.filter-color__item');
-const catalogList = document.querySelector('.catalog__list');
 const catalogCard = document.querySelectorAll('.catalog-card');
 const catalogWrap = document.querySelector('.catalog__wrap');
 const catalogNavigation = document.querySelector('.catalog__navigation');
 const production = document.querySelector('.production');
 const collaboration = document.querySelector('.collaboration');
+const filterTitleEl = document.querySelectorAll('.filter__subtitle');
 
 const choices = new Choices(selectEl, {
   searchEnabled: false,
@@ -59,8 +61,20 @@ selectCategory.addEventListener('change', function(){
 
 
 burgerEl.addEventListener('click', function(ev){
-  document.querySelector('.header').classList.toggle('open-burger');
+  headerEl.classList.toggle('open-burger');
+  if(headerEl.classList.contains('open-burger')) {
+    burgerEl.setAttribute('aria-expanded', 'true');
+  }
+  if(!headerEl.classList.contains('open-burger')) {
+    burgerEl.setAttribute('aria-expanded', 'false');
+  }
 })
+
+window.addEventListener('resize', function(event) {
+  if (window.innerWidth>950) {
+    if(headerEl.classList.contains('open-burger')){headerEl.classList.remove('open-burger')};
+  }
+});
 
 function addBreadCrumpsItemLink(text, link){
   const breadCrumpsItem = document.createElement('li');
@@ -313,29 +327,94 @@ const validator = new JustValidate('.connect__form', {
 
     const addFilter = function(name, text){
       name.firstElementChild.innerHTML = text;
-      console.log(name);
     }
 
     if (filter) {
-      addBreadCrumpsItemLink(' Каталог /', 'catalog.html');
-      addBreadCrumpsItemLink(' Диваны /', '#');
-      addBreadCrumpsItem(' Прямые диваны');
+      addBreadCrumpsItemLink('Каталог', 'catalog.html');
+      addBreadCrumpsItemLink('Диваны', '#');
+      addBreadCrumpsItem('Прямые диваны');
       const catalogTagGreen = document.querySelector('.catalog-tag__block--green');
       const catalogTagPinck = document.querySelector('.catalog-tag__block--pinck');
       const catalogTagGrey = document.querySelector('.catalog-tag__block--grey');
       const catalogTagBone = document.querySelector('.catalog-tag__block--bone');
+
+      if (window.innerWidth <= 1280){
+        filterListEl.forEach(el=>{
+          el.classList.add('invisible');
+        })
+      }
+
+      filter.addEventListener('click', function(ev) {
+        if (window.innerWidth <= 1280){
+          if (ev.target.classList.contains('filter__subtitle')){
+            ev.target.classList.toggle('open-list');
+            ev.target.nextElementSibling.classList.toggle('invisible');
+            filterTitleEl.forEach(el=>{
+              if (el != ev.target){
+                el.classList.remove('open-list');
+                el.nextElementSibling.classList.add('invisible');
+              } 
+            })
+          }
+        }
+        
+      })
+
+      window.addEventListener('resize', function(){
+        if (window.innerWidth <= 1280) {
+          filterListEl.forEach(el=>{
+            el.classList.add('invisible');
+            filterTitleEl.forEach(el=> {
+              el.classList.remove('open-list');
+            })
+          })
+
+          filterCategoryList.forEach(el=>{
+            if((el.firstElementChild.firstElementChild).checked){
+              let text = el.firstElementChild.lastElementChild.innerHTML;
+              addFilter(catalogTagGreen, text);
+            }
+          })
+
+          filterSaleList.forEach(el=>{
+            if((el.firstElementChild.firstElementChild).checked){
+              let text = el.firstElementChild.lastElementChild.innerHTML;
+              addFilter(catalogTagPinck, text);
+            }
+          })
+
+          filterColorList.forEach(el=>{
+            if((el.firstElementChild.firstElementChild).checked){
+              let text = el.firstElementChild.lastElementChild.innerHTML;
+              addFilter(catalogTagGrey, text);
+            }
+          })
+
+          let price ='До ' + document.getElementById('input-1').value;
+          addFilter(catalogTagBone, price);
+          
+        }
+
+        if (window.innerWidth > 1280) {
+          filterListEl.forEach(el=>{
+            if (el.classList.contains('invisible')){
+              el.classList.remove('invisible');
+            }  
+          })
+        }
+      }, true)
+
       filterCategoryList.forEach(el=>{
         if(el.children[0].children[2].textContent === 'Диваны') {
           el.children[0].children[0].setAttribute('checked', 'checked');
         }
         el.addEventListener('change', function(ev){
-          
           filterCategoryList.forEach(item=>{
             if (item != el) {
               item.children[0].children[0].checked = false;
             }
           })
-          if ((window.innerWidth < 1280) && (window.innerWidth > 610)) {
+          if ((window.innerWidth < 1280) && (window.innerWidth > 600)) {
             catalogTagGreen.style.display = 'flex';
             let text = ev.target.parentElement.lastElementChild.textContent;
             addFilter(catalogTagGreen, text);
@@ -346,7 +425,7 @@ const validator = new JustValidate('.connect__form', {
         })
       })
 
-      if ((window.innerWidth < 1280) && (window.innerWidth > 610)){
+      if ((window.innerWidth < 1280) && (window.innerWidth > 600)){
         document.getElementById('input-1').addEventListener('change', function(ev){
         catalogTagBone.style.display = 'flex';
         catalogTagBone.firstElementChild.innerHTML ='До ' + ev.currentTarget.value;
@@ -357,7 +436,6 @@ const validator = new JustValidate('.connect__form', {
           
           el.addEventListener('click', function(ev){
             const resultClass = ev.target.parentElement.className.substring(19, 100).trim();
-            console.log(resultClass);
             switch(resultClass){
               case 'catalog-tag__block--green':
                 document.querySelector('.catalog-tag__block--green').style.display= 'none';
@@ -393,7 +471,7 @@ const validator = new JustValidate('.connect__form', {
               item.children[0].children[0].checked = false;
             }
           })
-          if ((window.innerWidth < 1280) && (window.innerWidth > 610)) {
+          if ((window.innerWidth < 1280) && (window.innerWidth > 600)) {
             catalogTagPinck.style.display = 'flex';
             let text = ev.target.parentElement.lastElementChild.textContent;
             addFilter(catalogTagPinck, text);
@@ -414,18 +492,17 @@ const validator = new JustValidate('.connect__form', {
               item.children[0].children[0].checked = false;
             }
           })
-          if ((window.innerWidth < 1280) && (window.innerWidth > 610)) {
+          if ((window.innerWidth < 1280) && (window.innerWidth > 600)) {
             catalogTagGrey.style.display = 'flex';
-            const catalogTagGreen = document.querySelector('.catalog-tag__block--grey');
+            // const catalogTagGreen = document.querySelector('.catalog-tag__block--grey');
             let text = ev.target.parentElement.lastElementChild.textContent;
-            addFilter(catalogTagGreen, text);
+            addFilter(catalogTagGrey, text);
             if (!el.firstElementChild.firstElementChild.checked){
               catalogTagGrey.style.display = 'none';
             }
           }
         })
       })
-
     }
 
     if (catalogWrap) {
@@ -449,14 +526,11 @@ const validator = new JustValidate('.connect__form', {
         catalogNavigation.append(catalogBtn);
       }
 
-   
-
       if(catalogNavigation) {
         catalogNavigation.addEventListener('click', function(ev){
           let catalogNavigationArray = Array.prototype.slice.call(catalogNavigation.children)
           ev.preventDefault();
           count = ev.target.innerHTML;
-          console.log(catalogNavigationArray);
           catalogNavigationArray.forEach(el=>{
             el.classList.remove('active');
             if (el == ev.target) {el.classList.add('active')};
@@ -472,34 +546,13 @@ const validator = new JustValidate('.connect__form', {
           })
         });
       } 
-
-      if (window.innerWidth < 1280) {
-        const categoryListEl = document.querySelectorAll('.filter-list');
-        const filterTitleEl = document.querySelectorAll('.filter__subtitle');
-        categoryListEl.forEach(el=>{
-          el.classList.add('invisible');
-        })
-
-        filter.addEventListener('click', function(ev) {
-          if (ev.target.classList.contains('filter__subtitle')){
-            ev.target.classList.toggle('open-list');
-            ev.target.nextElementSibling.classList.toggle('invisible');
-            filterTitleEl.forEach(el=>{
-              if (el != ev.target){
-                el.classList.remove('open-list');
-                el.nextElementSibling.classList.add('invisible');
-              } 
-            })
-          }
-        })
-      }
     }
 
   if (production) {
-    addBreadCrumpsItemLink(' Каталог /', 'catalog.html');
-      addBreadCrumpsItemLink(' Диваны /', '#');
-      addBreadCrumpsItemLink(' Прямые диваны /');
-      addBreadCrumpsItem(' D-31');
+    addBreadCrumpsItemLink('Каталог', 'catalog.html');
+      addBreadCrumpsItemLink('Диваны', '#');
+      addBreadCrumpsItemLink('Прямые диваны');
+      addBreadCrumpsItem('D-31');
 
     const swiperProduction = new Swiper(".production__slider", {
       loop: false,
@@ -515,10 +568,10 @@ const validator = new JustValidate('.connect__form', {
         0: {
           direction: 'horizontal',
         },
-        611: {
+        601: {
           direction: 'vertical',
         },
-        871: {
+        769: {
           direction: 'horizontal',
         },
       }
@@ -539,6 +592,7 @@ const validator = new JustValidate('.connect__form', {
       watchSlidesProgress: true,
       grabCursor: true,
       allowSlideNext: true,
+      cssMode: true,
       navigation: {
         nextEl: '.modal-slider__next',
         prevEl: '.modal-slider__back',
@@ -567,10 +621,12 @@ const validator = new JustValidate('.connect__form', {
     
         970: {
           slidesPerView: 3,
+          spaceBetween: 32,
         },
     
         1330: {
           slidesPerView: 4,
+          spaceBetween: 32,
         }
       },
       navigation: {

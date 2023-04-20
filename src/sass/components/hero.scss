@@ -1,7 +1,11 @@
 .hero {
-  margin-top: 30px;
+  margin-top: 36px;
 
-  @media (max-width: 500px) {
+  @media (max-width: 1024px) {
+    margin-top: 30px;
+  }
+
+  @media (max-width: 600px) {
     padding-bottom: 35px;
   }
 
@@ -21,7 +25,7 @@
       background-image: url('../img/hero1-1920.jpg');
       background-size: cover;
 
-      @media (max-width: 1024px) {
+      @media (max-width: 1280px) {
         background-image: url('../img/hero1-1024.jpg');
       }
 
@@ -29,7 +33,7 @@
         background-image: url('../img/hero1-768.jpg');
       }
 
-      @media (max-width: 400px) {
+      @media (max-width: 390px) {
         background-image: url('../img/hero1-320.jpg');
       }
     }
@@ -38,7 +42,7 @@
       background-image: url('../img/hero2-1920.jpg');
       background-size: cover;
 
-      @media (max-width: 1024px) {
+      @media (max-width: 1280px) {
         background-image: url('../img/hero2-1024.jpg');
       }
 
@@ -46,7 +50,7 @@
         background-image: url('../img/hero2-768.jpg');
       }
 
-      @media (max-width: 400px) {
+      @media (max-width: 390px) {
         background-image: url('../img/hero2-320.jpg');
       }
     }
@@ -55,7 +59,7 @@
       background-image: url('../img/hero3-1920.jpg');
       background-size: cover;
 
-      @media (max-width: 1024px) {
+      @media (max-width: 1280px) {
         background-image: url('../img/hero3-1024.jpg');
       }
 
@@ -63,7 +67,7 @@
         background-image: url('../img/hero3-768.jpg');
       }
 
-      @media (max-width: 400px) {
+      @media (max-width: 390px) {
         background-image: url('../img/hero3-320.jpg');
       }
     }
@@ -77,153 +81,38 @@
     justify-content: center;
   }
 
-  // &__pagination {
-  //   display: flex;
-  //   justify-content: center;
-  //   align-items: center;
-  //   bottom:10px;
-  //   left: calc(50% - #{$pagination-width}) !important;
-  //   width:128px !important;
-  //   height: 40px;
-  //   background-color: $primary-shade-color;
-
-  //   @media (max-width: 500px) {
-  //     bottom: 100px !important;
-  //     width: 88px !important;
-  //     height: 30px;
-  //     left: calc(50% - #{$pagination-width-mobile}) !important;
-  //   }
-
-  //   .swiper-pagination-bullet {
-  //     position: relative;
-  //     z-index: 1;
-  //     height: 20px;
-  //     width: 20px;
-  //     border-radius: 50%;
-  //     border: 2px solid $light-background;
-  //     background-color: transparent;
-  //     opacity: 1;
-  //     transition: opacity .3s ease-in-out;
-
-  //     &:hover,&:focus  {
-  //       opacity: 0.8;
-  //     }
-
-  //     @media (max-width: 500px) {
-  //       height: 16px;
-  //       width: 16px;
-  //     }
-  //   }
-
-  //   .swiper-pagination-bullet-active {
-  //     position: relative;
-  //     top: 0;
-  //     left: 0;
-  //     z-index: 2;
-  //     height: 20px;
-  //     width: 20px;
-  //     opacity: 1;
-
-  //     @media (max-width: 500px) {
-  //       height: 16px;
-  //       width: 16px;
-  //     }
-
-  //     &::before,
-  //     &::after {
-  //       content: '';
-  //       position: absolute;
-  //       display: block;
-  //       border-width: 2px;
-  //       border-style: solid;
-  //       border-radius: 50%;
-  //       border-color: $light-background;
-  //     }
-
-  //     &:before {
-  //       width: 0;
-  //       height: 0;
-  //       z-index: 2;
-  //       top: -1px;
-  //       left: -2px;
-  //       border-width: 10px;
-  //       border-style: solid;
-  //       transform: rotate(45deg);
-  //       animation: border-animate 4s linear;
-
-  //       @media (max-width: 500px) {
-  //         top: -2px;
-  //         border-width: 8px;
-  //       }
-  //     }
-
-  //     &:after {
-  //       top: 1px;
-  //       left: 0px;
-  //       width: 16px;
-  //       height: 16px;
-  //       z-index: 3;
-  //       border-radius: 50%;
-  //       background-color: $primary-shade-color;
-  //       border: none;
-
-  //       @media (max-width: 500px) {
-  //         top: 0;
-  //         height: 12px;
-  //         width: 12px;
-  //       }
-  //     }
-  //   }
-  // }
-
-  // &__picture {
-  //   position: absolute;
-  //   top: 0;
-  //   left: 0;
-  //   bottom: 0;
-  //   right: 0;
-  //   z-index: 10;
-  // }
-
-  // &__picture {
-  //   display: flex;
-  //   justify-content: center;
-  // }
-
-  // &__img {
-  //   min-height: 400px;
-  //   object-fit: cover;
-
-  //   @media (max-width: 500px) {
-  //     min-height: 210px;
-  //     height: 210px;
-  //     min-width: 100%;
-  //     object-fit: cover;
-  //   }
-  // }
-
   &__container {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     padding-top: 80px;
     padding-bottom: 80px;
-    padding-left: 40px;
+    padding-left: 42px;
 
-    @media (max-width: 500px) {
+    @media (max-width: 1024px) {
+      padding-bottom: 84px;
+      padding-left: 36px;
+    }
+
+    @media (max-width: 768px) {
+      padding-top: 84px;
+      padding-bottom: 82px;
+    }
+
+    @media (max-width: 600px) {
       position: relative;
     }
 
     @media (max-width: 390px) {
       padding-top: 28px;
-      padding-bottom: 130px;
+      padding-bottom: 128px;
       padding-left: 16px;
     }
   }
 
   &__title{
     display: block;
-    width: 60%;
+    width: 40%;
     margin: 0;
     margin-bottom: 50px;
     font-family: 'OpenSans', sans-serif;
@@ -232,14 +121,15 @@
     line-height: 65px;
     color: $grey-color;
 
-    @media (max-width: 630px) {
-      font-size: 6.3vw;
-      line-height: 120%;
+    @media (max-width: 980px) {
+      width: 60%;
     }
 
-    @media (max-width: 500px) {
+    @media (max-width: 600px) {
       margin-bottom: 0;
       padding-left: 15px;
+      font-size: 6.3vw;
+      line-height: 140%; 
     }
 
     &--light {
@@ -251,7 +141,11 @@
     @include primary-btn;
     display: block;
 
-    @media (max-width: 500px) {
+    @media (max-width: 1024px) {
+      padding: 18px 48px;
+    }
+
+    @media (max-width: 600px) {
       display: none;
     }
   }
@@ -259,8 +153,9 @@
   &__mobile {
     display: none;
 
-    @media (max-width: 500px) {
+    @media (max-width: 600px) {
       margin-top: 30px;
+      padding: 16px 48px;
       width: 100%;
       display: flex;
       justify-content: center;
@@ -274,7 +169,7 @@
     margin-top: 125px;
   }
 
-  @media (max-width: 400px) {
+  @media (max-width: 390px) {
     margin-top: 85px;
   }
 }

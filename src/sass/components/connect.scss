@@ -2,13 +2,12 @@
   padding-top: 35px;
   padding-bottom: 70px;
 
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     padding-top: 38px;
-    padding-bottom: 70px;
   }
 
-  @media (max-width: 610px) {
-    padding-top: 78px;
+  @media (max-width: 600px) {
+    padding-top: 58px;
     padding-bottom: 67px;
   }
 
@@ -22,26 +21,18 @@
       background-position: 98% 50%;
     }
 
-    @media (max-width: 940px) {
+    @media (max-width: 980px) {
       background-image: url('../img/connect-768.png');
       background-size: 187px 444px;
     }
 
-    @media (max-width: 610px) {
+    @media (max-width: 600px) {
       background-image: none;
     }
   }
 
   &__title {
     margin-bottom: 9px;
-
-    @media (max-width: 1280px) {
-      margin-bottom: 12px;
-    }
-
-    @media (max-width: 940px) {
-      margin-bottom: 9px;
-    }
   }
 
   &__text {
@@ -58,11 +49,11 @@
       width: 40%;
     }
 
-    @media (max-width: 940px) {
+    @media (max-width: 980px) {
       width: 60%;
     }
 
-    @media (max-width: 610px) {
+    @media (max-width: 600px) {
       width: 90%;
     }
   }
@@ -120,11 +111,11 @@
     width: 42.5%;
   }
 
-  @media (max-width: 940px) {
+  @media (max-width: 980px) {
     width: 65%;
   }
 
-  @media (max-width: 610px) {
+  @media (max-width: 600px) {
     width: 100%;
   }
 
@@ -189,7 +180,7 @@
     font-size: 14px;
     line-height: 19px;
 
-    @media (max-width: 610px) {
+    @media (max-width: 600px) {
       font-size: 12px;
     }
 

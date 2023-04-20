@@ -4,7 +4,7 @@
   &__block {
     position: relative;
     top: 100px;
-    width: 624px;
+    width: 584px;
     height: 421px;
     padding: 30px;
     border-radius: 10px;
@@ -13,14 +13,14 @@
     transform: scale(0);
     transition: transform .5s ease;
 
-    @media (max-width: 610px) {
+    @media (max-width: 600px) {
       width: 296px;
       height: 387px;
       padding: 30px 10px 30px 16px;
     }
 
     &--height {
-      @media (max-width: 610px) {
+      @media (max-width: 600px) {
         height: 216px;
       }
     }
@@ -38,19 +38,24 @@
     top: 20px;
     right: 20px;
 
+    @media (max-width: 720px) {
+      top: 20px;
+      right: 20px;
+    }
+
     &::before {
-      @media (max-width: 650px) {
+      @media (max-width: 600px) {
         height: 15px;
       }
     }
 
     &::after {
-      @media (max-width: 650px) {
+      @media (max-width: 600px) {
         height: 15px;
       }
     }
     
-    @media (max-width: 650px) {
+    @media (max-width: 600px) {
       top: 15px;
       right: 20px;
     }
@@ -64,7 +69,7 @@
     font-size: 32px;
     line-height: 100%;
 
-    @media (max-width: 610px) {
+    @media (max-width: 600px) {
       font-size: 24px;
     }
   }
@@ -78,7 +83,7 @@
     font-size: 14px;
     line-height: 19px;
 
-    @media (max-width: 610px) {
+    @media (max-width: 600px) {
       width: 100%;
       margin-bottom: 16px;
     }

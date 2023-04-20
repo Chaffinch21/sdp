@@ -3,7 +3,7 @@
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-  padding: 150px 0;
+  padding: 154px 0 150px;
 
   @media (max-width: 1024px) {
     background-image: url('../img/banner1024.jpg');
@@ -13,8 +13,12 @@
     background-image: url('../img/banner768.jpg');
   }
 
-  @media (max-width:450px) {
-    padding: 35px 0 65px;
+  @media (max-width: 600px) {
+    padding: 60px 0 60px;
+  }
+
+  @media (max-width: 390px) {
+    padding: 32px 0 67px;
     margin-bottom: 100px;
     background-image: url('../img/banner320.jpg');
   }
@@ -24,7 +28,7 @@
     flex-direction: column;
     align-items: flex-start;
 
-    @media (max-width:610px) {
+    @media (max-width: 390px) {
       position: relative;
     }
   }
@@ -37,17 +41,17 @@
     line-height: 72px;
     color: $gold-color;
 
-    @media (max-width:768px) {
-      margin-left: -40px;
+    @media (max-width: 768px) {
+      margin-left: -38px;
     }
 
-    @media (max-width:730px) {
+    @media (max-width: 720px) {
       margin-left: 0;
       font-size: 42px;
       line-height: 48px;
     }
 
-    @media (max-width:450px) {
+    @media (max-width: 390px) {
       font-size: 24px;
       line-height: 28px;
     }
@@ -56,7 +60,7 @@
   &__descr {
     max-width: 50%;
     margin: 0;
-    margin-bottom: 50px;
+    margin-bottom: 47px;
     font-family: 'OpenSans', sans-serif;
     font-weight: 400;
     font-size: 48px;
@@ -67,25 +71,25 @@
       max-width: 70%;
     }
 
-    @media (max-width: 1023px) {
+    @media (max-width: 980px) {
       max-width: 75%;
     }
 
     @media (max-width:768px) {
-      margin-left: -40px;
+      margin-left: -38px;
     }
 
-    @media (max-width:730px) {
+    @media (max-width:720px) {
       margin-left: 0px;
     }
 
-    @media (max-width:610px) {
+    @media (max-width:600px) {
       max-width: 70%;
       font-size: 20px;
       line-height: 24px;
     }
 
-    @media (max-width:450px) {
+    @media (max-width:390px) {
       max-width: 70%;
       font-size: 16px;
       line-height: 18px;
@@ -94,20 +98,20 @@
 
   &__btn {
     @include primary-btn;
-    padding: 18px 32px;
+    padding: 17px 31px;
 
     @media (max-width:768px) {
-      margin-left: -40px;
+      margin-left: -38px;
     }
 
-    @media (max-width:730px) {
+    @media (max-width:720px) {
       margin-left: 0px;
     }
 
-    @media (max-width:450px) {
+    @media (max-width:390px) {
       position: absolute;
       width: 296px;
-      bottom: -155px;
+      bottom: -158px;
       left: 50%;
       transform: translateX(-50%);
     }

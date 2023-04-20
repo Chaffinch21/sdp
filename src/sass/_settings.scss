@@ -84,7 +84,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
   line-height: 100%;
   color: $base-font-color;
 
-  @media (max-width: 610px) {
+  @media (max-width: 600px) {
     font-size: 24px;
   }
 }

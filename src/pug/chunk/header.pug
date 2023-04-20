@@ -11,7 +11,7 @@ header.header
   .header__regtel
     .container.header__container.location.header__location
       .location__wrap
-        h3.location__title Ваш регион:
+        p.location__title Ваш регион:
         select.location__select(name="select" id="selectCustomHide")
           option.location__item(value="mosсow" data-art="mosсow" selected) Москва
           option.location__item(value="kazan" data-art="kazan") Казань
@@ -20,13 +20,13 @@ header.header
       a.location__tel(href="tel:+74958854547")
         svg.location__icon
           use(xlink:href="img/sprite.svg#tel")
-        span.location__num +7(495)885-45-47
+        span.location__num +7 (495) 885-45-47
   .header__top
     .container.header__container
       .header__contact.contact
         .contact__location.location
           .location__wrap
-            h3.location__title Ваш регион:
+            p.location__title Ваш регион:
             select.location__select(name="select" id="selectCustom")
               option.location__item(value="mosсow" data-art="mosсow" selected) Москва
               option.location__item(value="kazan" data-art="kazan") Казань
@@ -35,12 +35,12 @@ header.header
             a.location__tel(href="tel:+74958854547")
               svg.location__icon
                 use(xlink:href="img/sprite.svg#tel")
-              span.location__num +7(495)885-45-47
+              span.location__num +7 (495) 885-45-47
       nav.header__submenu.submenu
         ul.submenu__list
           each item in submenu
             li.submenu__item
-              a.submenu__link(href=item.href)= item.name
+              a.submenu__link(href=item.href tabindex="0")= item.name
       nav.header__user.header__user--hide.user
         ul.user__list
           li.user__item
@@ -59,7 +59,7 @@ header.header
           li.submenu__item
             a.submenu__link(href=item.href)= item.name
     .container.header__container.middle__container
-      button.header__burger.burger.burger-js(type="button" aria-label="Открыть меню")
+      button.header__burger.burger.burger-js(type="button" aria-label="Открыть меню" aria-expanded="false")
         span.burger__line
         span.burger__line
         span.burger__line
@@ -82,8 +82,8 @@ header.header
               span.user__count 0
               svg.user__svg.user__svg--cart
                 use(xlink:href="img/sprite.svg#cart")
-  .header__bottom
-    .container.header__container
+  .header__bottom.bottom
+    .container.header__container.bottom__container
       .header__wrap
         form.header__form.search
           label.search__label
